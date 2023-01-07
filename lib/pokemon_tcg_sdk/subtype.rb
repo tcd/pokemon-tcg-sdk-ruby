@@ -1,7 +1,7 @@
 module Pokemon
   class Subtype
     include RestClient
-    
+
     # Get all subtypes
     #
     # @return [Array<String>]  All subtypes

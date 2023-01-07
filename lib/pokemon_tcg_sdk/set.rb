@@ -24,7 +24,7 @@ module Pokemon
     def self.Resource
       "sets"
     end
-    
+
     # Find a single set by the set code
     #
     # @param id [String] the set code
@@ -39,7 +39,7 @@ module Pokemon
     def self.all
       QueryBuilder.new(Set).all
     end
-    
+
     # Adds a parameter to the hash of query parameters
     #
     # @param args [Hash] the query parameter

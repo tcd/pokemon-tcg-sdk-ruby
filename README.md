@@ -140,27 +140,27 @@ To configure your API Key:
 #### Filter Cards via query parameters
 
     cards = Pokemon::Card.where(q: 'set.name:generations subtypes:mega')
-    
+
 #### Find all cards (will take awhile)
 
     cards = Pokemon::Card.all
-    
+
 #### Get all cards, but only a specific page of data
 
     cards = Pokemon::Card.where(page: 5, pageSize: 100)
-    
+
 #### Find a set by code
 
     set = Pokemon::Set.find('base1')
-    
+
 #### Filter sets via query parameters
 
     sets = Pokemon::Set.where(q: 'legalities.standard:legal')
-    
+
 #### Get all Sets
 
     sets = Pokemon::Set.all
-    
+
 #### Get all Types
 
     types = Pokemon::Type.all

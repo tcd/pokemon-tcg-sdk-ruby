@@ -27,9 +27,9 @@ module Pokemon
         raise 'Something went wrong...please try again later.'
       end
     end
-    
+
     protected
-    
+
     def self.client
       headers = {'Content-Type' => 'application/json'}
       headers['X-Api-Key'] = Pokemon.configuration.api_key unless Pokemon.configuration.api_key.nil?

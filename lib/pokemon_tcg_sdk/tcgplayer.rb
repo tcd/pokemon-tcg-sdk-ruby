@@ -14,7 +14,7 @@ module Pokemon
 
   class TcgPlayerPrices
     attr_accessor :normal, :holofoil, :reverse_holofoil, :first_edition_holofoil, :first_edition_normal, :first_edition, :unlimited
-    
+
     def self.from_json(json)
       price = TcgPlayerPrices.new
       price.normal = TcgPlayerPriceValues.from_json(json['normal']) if json.key? 'normal'

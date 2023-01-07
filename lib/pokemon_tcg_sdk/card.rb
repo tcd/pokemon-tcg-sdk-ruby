@@ -45,7 +45,7 @@ module Pokemon
     def self.Resource
       "cards"
     end
-    
+
     # Find a single card by the card id
     #
     # @param id [String] the card id
@@ -60,7 +60,7 @@ module Pokemon
     def self.all
       QueryBuilder.new(Card).all
     end
-    
+
     # Adds a parameter to the hash of query parameters
     #
     # @param args [Hash] the query parameter

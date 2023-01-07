@@ -1,7 +1,7 @@
 module Pokemon
   class Rarity
     include RestClient
-    
+
     # Get all types
     #
     # @return [Array<String>]  All types

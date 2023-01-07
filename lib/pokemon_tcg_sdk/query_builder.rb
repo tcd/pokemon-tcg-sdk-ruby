@@ -5,7 +5,7 @@ module Pokemon
   class QueryBuilder
     include RestClient
     attr_accessor :type, :query
-    
+
     def initialize(type)
       @type = type
       @query = {}
@@ -19,7 +19,7 @@ module Pokemon
       @query.merge!(args)
       self.all
     end
-    
+
     # Find a single resource by the resource id
     #
     # @param id [String] the resource id
@@ -28,7 +28,7 @@ module Pokemon
       response = RestClient.get("#{@type.Resource}/#{id}")
       @type.from_json response['data']
     end
-    
+
     # Get all resources from a query by paging through data
     #
     # @return [Array<Object>] Array of resources
@@ -41,13 +41,13 @@ module Pokemon
         page = @query[:page]
         fetch_all = false
       end
-      
+
       while true
         response = RestClient.get(@type.Resource, @query)
-        data = response['data'] 
+        data = response['data']
         if !data.nil? && data.any?
           data.each {|item| list << @type.from_json(item)}
-          
+
           if !fetch_all
             break
           else

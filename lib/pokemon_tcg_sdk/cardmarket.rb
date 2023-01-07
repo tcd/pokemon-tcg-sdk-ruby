@@ -16,7 +16,7 @@ module Pokemon
     attr_accessor :average_sell_price, :low_price, :trend_price, :german_pro_low, :suggested_price,
       :reverse_holo_sell, :reverse_holo_low, :reverse_holo_trend, :low_price_ex_plus, :avg1, :avg7, :avg30,
       :reverse_holo_avg1, :reverse_holo_avg7, :reverse_holo_avg30
-    
+
     def self.from_json(json)
       price = CardmarketPrices.new
       price.average_sell_price = json['averageSellPrice']

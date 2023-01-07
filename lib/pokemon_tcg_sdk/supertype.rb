@@ -1,7 +1,7 @@
 module Pokemon
   class Supertype
     include RestClient
-    
+
     # Get all supertypes
     #
     # @return [Array<String>]  All supertypes
