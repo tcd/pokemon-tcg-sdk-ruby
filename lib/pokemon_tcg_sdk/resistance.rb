@@ -1,10 +1,16 @@
 module Pokemon
   class Resistance
-    attr_accessor :type, :value
+    # @return [String]
+    attr_accessor :type
+    # @return [String]
+    attr_accessor :value
 
+    # @param json [Hash]
+    # @return [self]
     def self.from_json(json)
       resistance = Resistance.new
-      resistance.type = json['type']
+
+      resistance.type  = json['type']
       resistance.value = json['value']
 
       resistance

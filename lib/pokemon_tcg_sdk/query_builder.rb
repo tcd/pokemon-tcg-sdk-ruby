@@ -4,8 +4,14 @@ require 'json'
 module Pokemon
   class QueryBuilder
     include RestClient
-    attr_accessor :type, :query
 
+    # @return [String]
+    attr_accessor :type
+    # @return [Hash]
+    attr_accessor :query
+
+    # @param type [String]
+    # @return [void]
     def initialize(type)
       @type = type
       @query = {}

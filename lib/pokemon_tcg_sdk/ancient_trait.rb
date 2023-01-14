@@ -1,13 +1,19 @@
 module Pokemon
   class AncientTrait
-    attr_accessor :name, :text
+    # @return [String]
+    attr_accessor :name
+    # @return [String]
+    attr_accessor :text
 
+    # @param json [Hash]
+    # @return [self]
     def self.from_json(json)
       trait = AncientTrait.new
+
       trait.name = json['name']
       trait.text = json['text']
 
-      trait
+      return trait
     end
   end
 end

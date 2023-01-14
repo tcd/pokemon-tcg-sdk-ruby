@@ -1,14 +1,22 @@
 module Pokemon
   class Ability
-    attr_accessor :name, :text, :type
+    # @return [String]
+    attr_accessor :name
+    # @return [String]
+    attr_accessor :text
+    # @return [String]
+    attr_accessor :type
 
+    # @param json [Hash]
+    # @return [self]
     def self.from_json(json)
       ability = Ability.new
+
       ability.name = json['name']
       ability.text = json['text']
       ability.type = json['type']
 
-      ability
+      return ability
     end
   end
 end

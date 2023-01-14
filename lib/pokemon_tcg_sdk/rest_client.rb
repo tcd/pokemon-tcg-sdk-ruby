@@ -31,17 +31,19 @@ module Pokemon
     protected
 
     def self.client
-      headers = {'Content-Type' => 'application/json'}
+      headers = { 'Content-Type' => 'application/json' }
       headers['X-Api-Key'] = Pokemon.configuration.api_key unless Pokemon.configuration.api_key.nil?
 
       @client = Faraday.new(
         url: "#{API_URL}/v2",
-        headers: headers
+        headers: headers,
       )
     end
 
+    # @param params [Hash]
+    # @return [String]
     def self.params_to_query(params)
-      params.map {|p, v| "#{p}=#{ERB::Util.url_encode(v.to_s)}"}.join('&')
+      params.map { |p, v| "#{p}=#{ERB::Util.url_encode(v.to_s)}" }.join('&')
     end
   end
 end

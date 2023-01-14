@@ -20,20 +20,25 @@ require "pokemon_tcg_sdk/ancient_trait"
 require "pokemon_tcg_sdk/rarity"
 
 module Pokemon
-  API_URL = 'https://api.pokemontcg.io'
+  # @return [String]
+  API_URL = 'https://api.pokemontcg.io'.freeze
 
   class << self
     attr_writer :configuration
   end
 
+  # @return [Pokemon::Configuration]
   def self.configuration
     @configuration ||= Configuration.new
   end
 
+  # @yieldparam [Pokemon::Configuration]
+  # @return [void]
   def self.configure
     yield(configuration)
   end
 
+  # @return [Pokemon::Configuration]
   def self.reset
     @configuration = Configuration.new
   end

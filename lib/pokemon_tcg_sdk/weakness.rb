@@ -1,13 +1,19 @@
 module Pokemon
   class Weakness
-    attr_accessor :type, :value
+    # @return [String]
+    attr_accessor :type
+    # @return [String]
+    attr_accessor :value
 
+    # @param json [Hash]
+    # @return [self]
     def self.from_json(json)
       weakness = Weakness.new
-      weakness.type = json['type']
+
+      weakness.type  = json['type']
       weakness.value = json['value']
 
-      weakness
+      return weakness
     end
   end
 end

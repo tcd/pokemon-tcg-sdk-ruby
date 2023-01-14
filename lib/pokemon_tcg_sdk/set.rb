@@ -1,28 +1,50 @@
 module Pokemon
   class Set
-    attr_accessor :id, :name, :series, :printed_total, :total, :legalities, :ptcgo_code, :release_date, :updated_at, :images
+    # @return [String]
+    attr_accessor :id
+    # @return [String]
+    attr_accessor :name
+    # @return [String]
+    attr_accessor :series
+    # @return [Integer]
+    attr_accessor :printed_total
+    # @return [Integer]
+    attr_accessor :total
+    # @return [Pokemon::Legalities]
+    attr_accessor :legalities
+    # @return [String]
+    attr_accessor :ptcgo_code
+    # @return [String]
+    attr_accessor :release_date
+    # @return [String]
+    attr_accessor :updated_at
+    # @return [Pokemon::SetImages]
+    attr_accessor :images
 
+    # @param json [Hash]
+    # @return [self]
     def self.from_json(json)
       set = Set.new
-      set.id = json['id']
-      set.name = json['name']
-      set.series = json['series']
-      set.printed_total = json['printedTotal']
-      set.total = json['total']
-      set.legalities = Legalities.from_json(json['legalities']) if !json['legalities'].nil?
-      set.ptcgo_code = json['ptcgoCode']
-      set.release_date = json['releaseDate']
-      set.updated_at = json['updatedAt']
-      set.images = SetImages.from_json(json['images']) if !json['images'].nil?
 
-      set
+      set.id            = json['id']
+      set.name          = json['name']
+      set.series        = json['series']
+      set.printed_total = json['printedTotal']
+      set.total         = json['total']
+      set.legalities    = Legalities.from_json(json['legalities']) unless json['legalities'].nil?
+      set.ptcgo_code    = json['ptcgoCode']
+      set.release_date  = json['releaseDate']
+      set.updated_at    = json['updatedAt']
+      set.images        = SetImages.from_json(json['images']) unless json['images'].nil?
+
+      return set
     end
 
     # Get the resource string
     #
     # @return [String] The API resource string
     def self.Resource
-      "sets"
+      return "sets"
     end
 
     # Find a single set by the set code
